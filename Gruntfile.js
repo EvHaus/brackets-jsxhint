@@ -14,7 +14,6 @@ module.exports = function(grunt) {
 						'bower_components/jshint/dist/jshint.js',
 						'bower_components/react/JSXTransformer.js',
 						'config.js',
-						'jshint/*',
 						'main.js',
 						'LICENSE',
 						'NOTICE',
