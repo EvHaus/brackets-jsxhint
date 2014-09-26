@@ -13,6 +13,10 @@ Brackets Sprint 37 or greater
 Release Notes
 =====
 
+**v0.0.2** (2014-08-26)
+
+- Fix for [Issue #1](https://github.com/globexdesigns/brackets-jsxhint/issues/1)
+
 **v0.0.1** (2014-08-25)
 
 - Initial release

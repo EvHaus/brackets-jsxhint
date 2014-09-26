@@ -51,7 +51,7 @@ define(function (require, exports, module) {
      */
     var _configFileName = ".jshintrc";
 
-    /**
+	/**
      * Synchronous linting entry point.
      *
      * @param {string} text File contents.
@@ -125,6 +125,24 @@ define(function (require, exports, module) {
         }
     }
 
+
+	/**
+     * Synchronous linting entry point for Javascript files.
+     *
+     * @param {string} text File contents.
+     * @param {string} fullPath Absolute path to the file.
+     * @param {object} config  JSHint configuration object.
+     *
+     * @return {object} Results of code inspection.
+     */
+	function handleJSHinter(text, fullPath, config) {
+		// #1. Ensure '.js' files have a /** @jsx React.DOM */ comment before trying to validate.
+		if (text.search('@jsx React.DOM') < 0) return;
+
+		return handleHinter(text, fullPath, config);
+	}
+
+
     /**
      * Asynchronous linting entry point.
      *
@@ -139,6 +157,24 @@ define(function (require, exports, module) {
             .then(_applyOverrides(fullPath))
             .done(function (cfg) {
                 deferred.resolve(handleHinter(text, fullPath, cfg));
+            });
+        return deferred.promise();
+    }
+
+	/**
+     * Asynchronous linting entry point for Javascript.
+     *
+     * @param {string} text File contents.
+     * @param {string} fullPath Absolute path to the file.
+     *
+     * @return {$.Promise} Promise to return results of code inspection.
+     */
+    function handleJSHinterAsync(text, fullPath) {
+        var deferred = new $.Deferred();
+        _loadConfig(fullPath)
+            .then(_applyOverrides(fullPath))
+            .done(function (cfg) {
+                deferred.resolve(handleJSHinter(text, fullPath, cfg));
             });
         return deferred.promise();
     }
@@ -359,4 +395,9 @@ define(function (require, exports, module) {
         scanFileAsync: handleHinterAsync
     });
 
+	CodeInspection.register("javascript", {
+        name: JSHINT_NAME,
+        scanFile: handleJSHinter,
+        scanFileAsync: handleJSHinterAsync
+    });
 });
