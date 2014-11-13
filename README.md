@@ -13,6 +13,10 @@ Brackets Sprint 37 or greater
 Release Notes
 =====
 
+**v0.0.3** (2014-11-13)
+
+- Upgrade to React v0.12 and enable Harmony mode
+
 **v0.0.2** (2014-08-26)
 
 - Fix for [Issue #1](https://github.com/globexdesigns/brackets-jsxhint/issues/1)

@@ -71,7 +71,7 @@ define(function (require, exports, module) {
 			JSXCode;
 
 		try {
-			JSXCode = JSXTransformer.transform(text).code;
+			JSXCode = JSXTransformer.transform(text, {harmony: true}).code;
 		} catch (e) {
 			// Try to find a line number
 			var line = null,
@@ -86,7 +86,7 @@ define(function (require, exports, module) {
 			return result;
 		}
 
-        var resultJH = JSHINT(JSXCode, config.options, config.globals);
+		var resultJH = JSHINT(JSXCode, config.options, config.globals);
 
         if (!resultJH) {
             var errors = JSHINT.errors,
@@ -107,12 +107,21 @@ define(function (require, exports, module) {
                         }
                     }
 
-                    message = messageOb.reason;
+					message = messageOb.reason;
                     if (messageOb.code) {
                         message += " (" + messageOb.code + ")";
                     }
 
-                    result.errors.push({
+					var rawcode = text.split('\n')[messageOb.line - 1].trim(),
+						compiledcode = messageOb.evidence.trim();
+
+					// If the JSX code is different than the compiled code, add it to the
+					// error message to help the developer find the issue.
+					if (rawcode !== compiledcode) {
+						message += ' Compiled code: ' + compiledcode;
+					}
+
+					result.errors.push({
                         pos: {line: messageOb.line - 1, ch: messageOb.character - 1},
                         message: message,
                         type: type

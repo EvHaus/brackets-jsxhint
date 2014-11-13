@@ -1,4 +1,3 @@
-/** @jsx React.DOM */
 /* global require, module */
 
 var React = require('react');
@@ -29,8 +28,10 @@ var DropdownButton = React.createClass({
   render: function () {
     var className = 'dropdown-toggle';
 
-    var renderMethod = this.props.navItem ?
+	var renderMethod = this.props.navItem ?
       'renderNavItem' : 'renderButtonGroup';
+
+	var {cls, ...other} = this.props;
 
     return this[renderMethod]([
       this.transferPropsTo(<Button
