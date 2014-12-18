@@ -13,6 +13,10 @@ Brackets Sprint 37 or greater
 Release Notes
 =====
 
+**v0.0.6** (2014-12-18)
+
+- Now validates all Javascript and JSX files instead of looking for the React DOM comment
+
 **v0.0.5** (2014-12-18)
 
 - Upgrade to JSHint 2.5.11

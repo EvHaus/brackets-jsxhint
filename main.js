@@ -154,9 +154,6 @@ define(function (require, exports, module) {
      * @return {object} Results of code inspection.
      */
 	function handleJSHinter(text, fullPath, config) {
-		// #1. Ensure '.js' files have a /** @jsx React.DOM */ comment before trying to validate.
-		if (text.search('@jsx React.DOM') < 0) return;
-
 		return handleHinter(text, fullPath, config);
 	}
 

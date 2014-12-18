@@ -4,7 +4,7 @@
     "description": "Adds JSXHint support to Brackets. It's a wrapper around JSHint for linting React JSX files. 100% compatible with existing tools using JSHint.",
     "homepage": "https://github.com/globexdesigns/brackets-jsxhint",
 	"repository": "https://github.com/globexdesigns/brackets-jsxhint",
-    "version": "0.0.5",
+    "version": "0.0.6",
 	"categories": "linting",
 	"keywords": ["jsxhint", "jshint", "javascript", "code", "linter", "linting"],
     "author": "Evgueni Naverniouk <evgueni@globexdesigns.com> (http://www.globexdesigns.com/)",
