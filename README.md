@@ -13,9 +13,13 @@ Brackets Sprint 37 or greater
 Release Notes
 =====
 
+**v0.0.5** (2014-12-18)
+
+- Upgrade to JSHint 2.5.11
+
 **v0.0.4** (2014-12-18)
 
-- Revert to JSHINT 2.5.6, as there is a Browserify loading issue with JSHINT 2.5.10
+- Revert to JSHINT 2.5.6, as there is a Browserify loading issue with JSHint 2.5.10
 - Add JSHINT failure detection to prevent linter from timing out
 
 **v0.0.3** (2014-11-13)
