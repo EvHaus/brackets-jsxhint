@@ -13,6 +13,11 @@ Brackets Sprint 37 or greater
 Release Notes
 =====
 
+**v0.0.4** (2014-12-18)
+
+- Revert to JSHINT 2.5.6, as there is a Browserify loading issue with JSHINT 2.5.10
+- Add JSHINT failure detection to prevent linter from timing out
+
 **v0.0.3** (2014-11-13)
 
 - Upgrade to React v0.12 and enable Harmony mode

@@ -5,7 +5,7 @@
  */
 
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, maxerr: 50 */
-/*global define, brackets, $, window, JSHINT*/
+/*global define, brackets, $, window, JSHINT */
 define(function (require, exports, module) {
     "use strict";
 
@@ -86,10 +86,19 @@ define(function (require, exports, module) {
 			return result;
 		}
 
-		var resultJH = JSHINT(JSXCode, config.options, config.globals);
+		var resultJH;
+		try {
+			resultJH = JSHINT(JSXCode, config.options, config.globals);
+		} catch (e) {
+			result.errors.push({
+				pos: 0,
+				message: "JSXHint failed to execute JSHint due to unexpected error: " + e.message,
+				type: CodeInspection.Type.ERROR
+			});
+		}
 
         if (!resultJH) {
-            var errors = JSHINT.errors,
+            var errors = JSHINT ? JSHINT.errors : [],
                 i,
                 len;
             for (i = 0, len = errors.length; i < len; i++) {
