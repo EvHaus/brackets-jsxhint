@@ -121,8 +121,8 @@ define(function (require, exports, module) {
                         message += " (" + messageOb.code + ")";
                     }
 
-					var rawcode = text.split('\n')[messageOb.line - 1].trim(),
-						compiledcode = messageOb.evidence.trim();
+					var rawcode = (text.split('\n')[messageOb.line - 1] || "").trim(),
+						compiledcode = (messageOb.evidence || "").trim();
 
 					// If the JSX code is different than the compiled code, add it to the
 					// error message to help the developer find the issue.

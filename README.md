@@ -13,6 +13,10 @@ Brackets Sprint 37 or greater
 Release Notes
 =====
 
+**v0.0.7** (2015-01-27)
+
+- Fixes a bug which would print error messages to the console when error messages could not be determined
+
 **v0.0.6** (2014-12-18)
 
 - Now validates all Javascript and JSX files instead of looking for the React DOM comment
