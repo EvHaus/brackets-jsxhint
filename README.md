@@ -1,5 +1,7 @@
 brackets-jsxhint
 =================
+**THIS EXTENSION HAS BEEN DEPRECATED. USE [BRACKETS-ESLINT](https://github.com/zaggino/brackets-eslint) INSTEAD**
+=================
 
 A Brackets extension that enables compiles .jsx files to Javascript and runs them through JSHint.
 
